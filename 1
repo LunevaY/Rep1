@@ -1,0 +1,18 @@
+import smtplib
+
+sender = 'tester1@avsw.ru'
+receivers = ['testadmin@office2.ru']
+
+message = """content-Transfer-Encoding:Base64
+content-Type:text/plain; charset=koi8-r; format=flowed; delsp=yes
+message-id:<op.13m5z6k03m1o55@analitic-001win.avsw.local>
+subject:=?koi8-r?B?9MXT1CDQ0smjzcEg0MnTxc0=?=
+to:testadmin@office2.ru
+cc:testadmin@office2.ru
+from: <tester1@fake-box.com>
+date: Wed, 26 Apr 2024 17:29:56 +0300
+"""
+
+smtpObj = smtplib.SMTP('192.168.0.66', port="33")
+smtpObj.sendmail(sender, receivers, message)         
+print("Письмо для проверки №1 отправлено")
